@@ -68,7 +68,30 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
- 
+    
+    public function register()
+    {
+	$validator = validator(Input::all());
+	if ($validator->fails())
+	{
+	    return Redirect::to('register')
+	    ->withErrors($validator)
+	    ->withInput(Input::except('password'));
+	} else {
+	    $userdata = array(
+		'email' => Input::get('email'),
+		'name' => Input::get('name'),
+		'password' => Input::get('password')
+	     );
+
+	     if (create($userdata))
+	     {
+		return view('welcome');
+	     }
+	}
+	    
+    }
+	 
     public function showRegister()
     {
 	return view('register');

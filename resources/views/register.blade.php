@@ -7,7 +7,7 @@
 </head>
 <body>
 
-{!! Form::open(['url' => 'login']) !!}
+{!! Form::open(['url' => 'register']) !!}
 <h1>Register</h1>
 
 <!-- if there are login errors, show them here -->
