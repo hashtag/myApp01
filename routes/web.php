@@ -19,7 +19,7 @@ Route::get('logout', array('uses' => 'Auth\LoginController@logout'));
 
 Route::get('register', array('uses' => 'Auth\RegisterController@showRegister'));
 
-Route::post('register', array('uses' => 'Auth\RegisterController@register'));
+Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('home', function () {
     return view('welcome');
